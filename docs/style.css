@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* Global Design Tokens Matrix */
+:root[data-theme="dark"] {
+    --bg-main: #080c14;
+    --bg-header: #0f172a;
+    --bg-card: #0f172a;
+    --bg-inner-body: #0b1324;
+    --bg-input: #070a12;
+    --border-color: #1e293b;
+    --border-hover: #334155;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --text-body: #cbd5e1;
+    --brand-color: #6366f1;
+    --brand-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --code-bg: #05070f;
+    --code-text: #a7f3d0;
+    /* FIX INJECTION: Forces hardcoded Swagger black icons to invert into clean white */
+    --swagger-icon-filter: invert(1);
+}
+
+:root[data-theme="light"] {
+    --bg-main: #f1f5f9;
+    --bg-header: #ffffff;
+    --bg-card: #ffffff;
+    --bg-inner-body: #f8fafc;
+    --bg-input: #ffffff;
+    --border-color: #e2e8f0;
+    --border-hover: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-body: #334155;
+    --brand-color: #4f46e5;
+    --brand-gradient: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+    --shadow-color: rgba(148, 163, 184, 0.12);
+    --code-bg: #f1f5f9;
+    --code-text: #065f46;
+    --swagger-icon-filter: invert(0);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease, box-shadow 0.25s ease;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    background-color: var(--bg-main) !important;
+    color: var(--text-body);
+    overflow-x: hidden;
+}
+
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.dashboard-header {
+    height: 75px;
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.brand-container { display: flex; align-items: center; gap: 12px; }
+.brand-logo {
+    background: var(--brand-gradient);
+    color: white; width: 34px; height: 34px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 18px; box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+.brand-container h2 { color: var(--text-primary); font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+.brand-container h2 span { color: var(--brand-color); }
+.badge-version {
+    font-size: 11px; background: var(--bg-main); padding: 3px 8px; border-radius: 20px;
+    color: var(--text-secondary); margin-left: 6px; font-weight: 500; border: 1px solid var(--border-color);
+    position: relative;
+    top: -1px;
+}
+
+.header-actions { display: flex; align-items: center; gap: 20px; }
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: var(--bg-main); border: 1px solid var(--border-color);
+    width: 42px; height: 42px; border-radius: 10px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; color: var(--text-secondary);
+}
+.theme-toggle:hover { border-color: var(--brand-color); color: var(--brand-color); transform: scale(1.02); }
+.theme-toggle svg { width: 20px; height: 20px; }
+
+:root[data-theme="dark"] .sun-icon { display: block; }
+:root[data-theme="dark"] .moon-icon { display: none; }
+:root[data-theme="light"] .sun-icon { display: none; }
+:root[data-theme="light"] .moon-icon { display: block; }
+
+.infrastructure-status {
+    display: flex; align-items: center; gap: 10px; background-color: rgba(16, 185, 129, 0.06);
+    padding: 8px 16px; border-radius: 30px; border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.pulse-dot { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; animation: pulse 2s infinite; }
+.status-text { font-size: 12px; font-weight: 600; color: #10b981; }
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.viewport-container { padding: 40px; max-width: 1440px; width: 100%; margin: 0 auto; flex: 1; }
+.welcome-banner { background: var(--brand-gradient); padding: 32px; border-radius: 16px; margin-bottom: 35px; box-shadow: 0 10px 25px -5px var(--shadow-color); }
+.welcome-banner h1 { color: #ffffff !important; font-size: 26px; font-weight: 700; margin-bottom: 12px; }
+.welcome-banner p { color: rgba(255,255,255,0.85) !important; line-height: 1.65; font-size: 15px; }
+
+/* ==========================================================================
+   CRITICAL CORE SWAGGER ENGINE VISUAL FIXES & OVERRIDES
+   ========================================================================== */
+.swagger-ui { background-color: transparent !important; }
+.swagger-ui .info, .swagger-ui .scheme-container { display: none !important; }
+
+/* --- FIXING THE BLACK SCHEMAS AND AUTH ARROWS LOGIC --- */
+.swagger-ui .authorization__btn svg,
+.swagger-ui .arrow svg,
+.swagger-ui .expand-operation svg,
+.swagger-ui .model-toggle::after {
+    filter: var(--swagger-icon-filter) !important;
+}
+
+.swagger-ui .opblock-tag {
+    color: var(--text-primary) !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 20px !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 20px !important;
+}
+.swagger-ui .opblock-tag small { color: var(--text-secondary) !important; }
+
+/* Section Models/Schemas Dynamic Correction */
+.swagger-ui .wrapper { background-color: transparent !important; padding: 0 !important; }
+.swagger-ui section.models {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    padding: 15px 25px !important;
+}
+.swagger-ui section.models h4 span { color: var(--text-primary) !important; font-weight: 700; }
+
+/* Cards Configurations */
+.swagger-ui .opblock {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px var(--shadow-color) !important;
+    margin-bottom: 16px !important;
+    overflow: hidden;
+}
+.swagger-ui .opblock:hover { border-color: var(--border-hover) !important; }
+.swagger-ui .opblock .opblock-body { background-color: var(--bg-inner-body) !important; border-top: 1px solid var(--border-color); padding: 24px !important; }
+.swagger-ui .opblock .opblock-summary-path { color: var(--text-primary) !important; font-size: 15px !important; }
+.swagger-ui .opblock .opblock-summary-description { color: var(--text-secondary) !important; }
+
+/* Badges Base Branding */
+.swagger-ui .opblock .opblock-summary-method {
+    border-radius: 6px !important; font-family: 'Fira Code', monospace !important;
+    font-weight: 600 !important; font-size: 11px !important; padding: 6px 14px !important; text-shadow: none !important;
+}
+
+/* Form Interactivity fields */
+.swagger-ui input[type=text], .swagger-ui textarea {
+    background-color: var(--bg-input) !important; border: 1px solid var(--border-color) !important;
+    border-radius: 6px !important; color: var(--text-primary) !important; padding: 10px 14px !important;
+    font-family: 'Fira Code', monospace !important; outline: none !important;
+}
+.swagger-ui input[type=text]:focus, .swagger-ui textarea:focus { border-color: var(--brand-color) !important; }
+
+/* Buttons Customization mapping */
+.swagger-ui .btn { border-radius: 8px !important; font-weight: 600 !important; font-family: 'Plus Jakarta Sans', sans-serif !important; }
+.swagger-ui .btn.try-out__btn { background-color: var(--bg-main) !important; color: var(--text-body) !important; border: 1px solid var(--border-color) !important; }
+.swagger-ui .btn.execute { background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important; border: none !important; color: white !important; }
+
+.swagger-ui .auth-wrapper {
+    background: var(--bg-card) !important; border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important; padding: 16px 24px !important; margin-bottom: 30px !important;
+}
+.swagger-ui .btn.authorize { background: var(--brand-gradient) !important; border: none !important; color: white !important; }
+.swagger-ui .btn.authorize svg { fill: #ffffff !important; }
+
+/* Terminal JSON Highlights output configurations */
+.swagger-ui code, .swagger-ui pre, .swagger-ui .model-box {
+    font-family: 'Fira Code', monospace !important; background-color: var(--code-bg) !important;
+    color: var(--code-text) !important; border-radius: 8px !important; border: 1px solid var(--border-color) !important;
+}
+.swagger-ui .model-title { color: var(--text-primary) !important; }
+.swagger-ui .response-col_status { color: var(--brand-color) !important; font-weight: 700 !important; }

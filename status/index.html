@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RyxoServer | Infrastructure Systems Pulse</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <header class="ryxo-header">
+        <div class="header-container">
+            <div class="brand-zone">
+                <div class="logo-pulse"></div>
+                <div>
+                    <h1>RyxoServer Core</h1>
+                    <p>Live Infrastructure Monitoring Services</p>
+                </div>
+            </div>
+            <div class="global-status-badge" id="global-uptime-badge">
+                Cluster Operational: <span id="global-ratio">0.00%</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="ryxo-container">
+
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <h3>Monitored Nodes</h3>
+                <p id="metric-active-count">0</p>
+                <span class="card-sub">Active checking loops</span>
+            </div>
+            <div class="metric-card">
+                <h3>Active Incidents</h3>
+                <p id="metric-incident-count" class="zero-incidents">0</p>
+                <span class="card-sub">Degraded services</span>
+            </div>
+            <div class="metric-card">
+                <h3>Network Subsystem</h3>
+                <p class="status-up">ONLINE</p>
+                <span class="card-sub">Core pulse transmission active</span>
+            </div>
+        </section>
+
+        <section class="monitors-wrapper">
+            <div class="section-title">
+                <h2>Infrastructure Nodes Telemetry</h2>
+                <span class="live-indicator">LIVE UPDATING</span>
+            </div>
+
+            <div id="telemetry-nodes-container">
+                <div class="skeleton-loader">Compiling cluster telemetry matrix streams...</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="ryxo-footer">
+        <p>&copy; 2026 RyxoServer Ecosystem. Automated systems telemetry agent.</p>
+    </footer>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

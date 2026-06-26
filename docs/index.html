@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RyxoServer API Hub</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <header class="dashboard-header">
+            <div class="brand-container">
+                <div class="brand-logo">R</div>
+                <h2>Ryxo<span>Server</span> <span class="badge-version">v1.0.0</span></h2>
+            </div>
+
+            <div class="header-actions">
+                <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Core Interface Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path
+                            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+                        </path>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+                </button>
+
+                <div class="infrastructure-status">
+                    <div class="pulse-dot"></div>
+                    <span class="status-text">Production Infrastructure: Active</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="viewport-container">
+            <div class="welcome-banner">
+                <h1>API Ecosystem</h1>
+                <p>Welcome to the premium interactive manual for <b>RyxoServer Framework Core</b>. This dashboard maps out
+                    all system network blueprints, cryptographically guarded security protocols, high-speed cached
+                    connections, and automated proxy routing definitions.</p>
+            </div>
+
+            <div id="swagger-ui-mount"></div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-standalone-preset.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
