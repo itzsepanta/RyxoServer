@@ -30,7 +30,7 @@
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/itzsepanta/RyxoServer.git](https://github.com/itzsepanta/RyxoServer.git)
+   git clone https://github.com/itzsepanta/RyxoServer.git
    cd RyxoServer
 
 2. Install dependencies:
