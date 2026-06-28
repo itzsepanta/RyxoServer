@@ -1,23 +1,20 @@
 {
   "name": "RyxoServer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Grade robust NestJS core platform architecture designed for high-performance and absolute scalability.",
   "author": "ItzSepanta",
   "private": true,
   "license": "MIT",
   "scripts": {
     "build": "nest build",
+    "postbuild": "cp -r public dist/",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test": "jest"
   },
   "dependencies": {
     "@nestjs/cache-manager": "^3.1.3",

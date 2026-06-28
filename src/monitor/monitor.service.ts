@@ -190,7 +190,7 @@ export class MonitorService implements OnModuleInit, OnModuleDestroy {
 
       const requestOptions: http.RequestOptions = {
         timeout: 4500,
-        headers: { 'User-Agent': 'RyxoServer-Infrastructure-Pulse/1.0.0' }
+        headers: { 'User-Agent': 'RyxoServer-Infrastructure-Pulse/1.1.0' }
       };
 
       const outRequest = engineClient.get(parsedExecutionUri, requestOptions, (inResponse) => {
