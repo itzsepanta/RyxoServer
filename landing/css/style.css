@@ -1,10 +1,4 @@
-/* ============================================================
-   RyxoServer Landing Page — Light Mode FIXED
-   ============================================================ */
-
-/* ----- CSS Variables (Themes) ----- */
 :root {
-  /* Dark theme (default) */
   --bg-primary: #0a0e14;
   --bg-secondary: #111920;
   --bg-card: #0f1722;
@@ -30,9 +24,8 @@
   --scrollbar-thumb: #4fd1c5;
 }
 
-/* ===== LIGHT THEME — کاملاً برطرف شده ===== */
+/* ===== LIGHT THEME ===== */
 [data-theme="light"] {
-  /* پس‌زمینه‌ها */
   --bg-primary: #f0f4f9;
   --bg-secondary: #e4eaf0;
   --bg-card: #ffffff;
@@ -40,27 +33,22 @@
   --bg-input: #f0f4f8;
   --bg-hover: #dce4ec;
 
-  /* مرزها */
   --border-subtle: #c8d4de;
 
-  /* متن‌ها */
   --text-primary: #0f1a2b;
   --text-secondary: #2c3f54;
   --text-muted: #5a738a;
   --text-inverse: #ffffff;
 
-  /* اکسن‌ها */
   --accent: #2b9b8f;
   --accent-dark: #1e7a6f;
   --accent-glow: rgba(43, 155, 143, 0.2);
   --gradient: linear-gradient(135deg, #2b9b8f, #1e7a6f);
 
-  /* سایه‌ها */
   --shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
   --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
 
-  /* اسکرول‌بار */
   --scrollbar-track: #e4eaf0;
   --scrollbar-thumb: #2b9b8f;
 }
@@ -77,7 +65,6 @@
   border-radius: 20px;
 }
 
-/* ----- Reset & Base ----- */
 * {
   margin: 0;
   padding: 0;
